@@ -822,6 +822,7 @@ namespace Private {
   export function CloseButton(props: ICloseButtonProps) {
     return (
       <button
+        aria-label={props.title ?? "Close"}
         className={`jp-Button jp-mod-minimal ${TOAST_CLOSE_BUTTON_CLASS}${
           props.closeIconMargin ? ` ${TOAST_CLOSE_BUTTON_MARGIN_CLASS}` : ''
         }`}
