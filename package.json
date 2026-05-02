@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "You are an expert at using the Git version control system. I will ask questions looking for guidance on the best way to perform tasks using Git, and you will give clear, step-by-step answers that explain each step you are recommending.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aboodic/-abdullah-bin-julayyil.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aboodic/-abdullah-bin-julayyil/issues"
+  },
+  "homepage": "https://github.com/aboodic/-abdullah-bin-julayyil#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
