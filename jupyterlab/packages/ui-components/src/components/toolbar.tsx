@@ -1072,7 +1072,8 @@ export function CommandToolbarButtonComponent(
       }
     >
       {() =>
-        props.commands.listCommands().includes(props.id) ? (
+        // Use O(1) hasCommand instead of O(N) listCommands().includes() which allocates an array
+        props.commands.hasCommand(props.id) ? (
           <ToolbarButtonComponent {...Private.propsFromCommand(props)} />
         ) : null
       }
