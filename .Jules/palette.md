@@ -1,0 +1,3 @@
+## 2024-05-25 - Missing aria-label on icon-only buttons in custom RJSF form template components
+**Learning:** Discovered a pattern of missing `aria-label` attributes on icon-only buttons (MoveButton, DropButton, AddButton) within custom react-jsonschema-form (RJSF) template components when using the 'icons' `buttonStyle`. Since these buttons use icon components without visible text, they require explicit `aria-label`s for screen reader accessibility.
+**Action:** When implementing or modifying custom UI components for forms or template systems, explicitly verify that icon-only interactive elements receive descriptive `aria-label` attributes localized with `trans.__()`. Ensure screen reader users receive equivalent semantic meaning to the visual icon representation.
