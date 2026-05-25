@@ -148,6 +148,7 @@ export const MoveButton = (
         disabled={disabled()}
         appearance="stealth"
         title={trans.__('Move item %1', props.direction)}
+        aria-label={trans.__('Move item %1', props.direction)}
       >
         {buttonContent}
       </Button>
@@ -184,6 +185,7 @@ export const DropButton = (
         onClick={props.item.onDropIndexClick(props.item.index)}
         appearance="stealth"
         title={trans.__('Remove item')}
+        aria-label={trans.__('Remove item')}
       >
         {buttonContent}
       </Button>
@@ -224,6 +226,7 @@ export const AddButton = (
       className="jp-mod-styled jp-mod-accept jp-ArrayOperationsButton"
       onClick={props.onAddClick}
       title={trans.__('Add item')}
+      aria-label={trans.__('Add item')}
     >
       {buttonContent}
     </button>
