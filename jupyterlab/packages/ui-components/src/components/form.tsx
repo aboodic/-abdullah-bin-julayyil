@@ -148,6 +148,7 @@ export const MoveButton = (
         disabled={disabled()}
         appearance="stealth"
         title={trans.__('Move item %1', props.direction)}
+        aria-label={trans.__('Move item %1', props.direction)}
       >
         {buttonContent}
       </Button>
@@ -158,6 +159,7 @@ export const MoveButton = (
         className="jp-mod-styled jp-mod-reject jp-ArrayOperationsButton"
         onClick={props.item.onReorderClick(props.item.index, moveTo)}
         disabled={disabled()}
+        aria-label={props.direction === 'up' ? trans.__('Move up') : trans.__('Move down')}
       >
         {props.direction === 'up' ? trans.__('Move up') : trans.__('Move down')}
       </button>
@@ -184,6 +186,7 @@ export const DropButton = (
         onClick={props.item.onDropIndexClick(props.item.index)}
         appearance="stealth"
         title={trans.__('Remove item')}
+        aria-label={trans.__('Remove item')}
       >
         {buttonContent}
       </Button>
@@ -193,6 +196,7 @@ export const DropButton = (
       <button
         className="jp-mod-styled jp-mod-warn jp-ArrayOperationsButton"
         onClick={props.item.onDropIndexClick(props.item.index)}
+        aria-label={trans.__('Remove')}
       >
         {trans.__('Remove')}
       </button>
@@ -224,6 +228,7 @@ export const AddButton = (
       className="jp-mod-styled jp-mod-accept jp-ArrayOperationsButton"
       onClick={props.onAddClick}
       title={trans.__('Add item')}
+      aria-label={trans.__('Add item')}
     >
       {buttonContent}
     </button>
