@@ -187,6 +187,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         }}
         tabIndex={0}
         title={trans.__('Match Case')}
+        aria-pressed={props.caseSensitive}
+        aria-label={trans.__('Match Case')}
       >
         <caseSensitiveIcon.react className={caseButtonToggleClass} tag="span" />
       </button>
@@ -195,6 +197,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         onClick={() => props.onWordToggled()}
         tabIndex={0}
         title={trans.__('Match Whole Word')}
+        aria-pressed={props.wholeWords}
+        aria-label={trans.__('Match Whole Word')}
       >
         <wordIcon.react className={wordButtonToggleClass} tag="span" />
       </button>
@@ -203,6 +207,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         onClick={() => props.onRegexToggled()}
         tabIndex={0}
         title={trans.__('Use Regular Expression')}
+        aria-pressed={props.useRegex}
+        aria-label={trans.__('Use Regular Expression')}
       >
         <regexIcon.react className={regexButtonToggleClass} tag="span" />
       </button>
