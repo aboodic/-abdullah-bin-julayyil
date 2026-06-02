@@ -290,6 +290,7 @@ function BuildSettingForm(props: ISettingFormProps): JSX.Element {
                       property={property}
                       removeProperty={removeProperty}
                       setProperty={debouncedSetProperty}
+                      trans={props.trans}
                     />
                   );
                 })}
@@ -319,6 +320,7 @@ function PropertyFrom(props: {
   property: ISettingProperty;
   removeProperty: (hash: string) => void;
   setProperty: Debouncer<void, any, [hash: string, property: ISettingProperty]>;
+  trans: TranslationBundle;
 }): JSX.Element {
   const [state, setState] = useState<{
     property: string;
@@ -401,7 +403,12 @@ function PropertyFrom(props: {
               : e => changeValue(e.target.checked, state.type)
           }
         />
-        <button className="jp-mod-minimal jp-Button" onClick={removeItem}>
+        <button
+          className="jp-mod-minimal jp-Button"
+          onClick={removeItem}
+          title={props.trans.__('Remove property')}
+          aria-label={props.trans.__('Remove property')}
+        >
           <closeIcon.react />
         </button>
       </div>
