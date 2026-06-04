@@ -187,6 +187,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         }}
         tabIndex={0}
         title={trans.__('Match Case')}
+        aria-label={trans.__('Match Case')}
+        aria-pressed={props.caseSensitive}
       >
         <caseSensitiveIcon.react className={caseButtonToggleClass} tag="span" />
       </button>
@@ -195,6 +197,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         onClick={() => props.onWordToggled()}
         tabIndex={0}
         title={trans.__('Match Whole Word')}
+        aria-label={trans.__('Match Whole Word')}
+        aria-pressed={props.wholeWords}
       >
         <wordIcon.react className={wordButtonToggleClass} tag="span" />
       </button>
@@ -203,6 +207,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         onClick={() => props.onRegexToggled()}
         tabIndex={0}
         title={trans.__('Use Regular Expression')}
+        aria-label={trans.__('Use Regular Expression')}
+        aria-pressed={props.useRegex}
       >
         <regexIcon.react className={regexButtonToggleClass} tag="span" />
       </button>
@@ -247,6 +253,8 @@ function ReplaceEntry(props: IReplaceEntryProps): JSX.Element {
             className={BUTTON_WRAPPER_CLASS}
             onClick={() => props.onPreserveCaseToggled()}
             title={trans.__('Preserve Case')}
+            aria-label={trans.__('Preserve Case')}
+            aria-pressed={props.preserveCase}
           >
             <caseSensitiveIcon.react
               className={preserveCaseButtonToggleClass}
@@ -377,6 +385,8 @@ function FilterToggle(props: IFilterToggleProps): JSX.Element {
           ? props.trans.__('Hide Search Filters')
           : props.trans.__('Show Search Filters')
       }
+      aria-label={props.trans.__('Search Filters')}
+      aria-expanded={props.visible}
     >
       <icon.react className={className} tag="span" height="20px" width="20px" />
     </button>
@@ -699,6 +709,8 @@ class SearchOverlay extends React.Component<ISearchOverlayProps> {
                   ? trans.__('Hide Replace')
                   : trans.__('Show Replace')
               }
+              aria-label={trans.__('Replace')}
+              aria-expanded={showReplace}
             >
               <icon.react
                 className={`${REPLACE_TOGGLE_CLASS} ${BUTTON_CONTENT_CLASS}`}
