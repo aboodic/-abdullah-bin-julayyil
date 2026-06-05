@@ -290,6 +290,7 @@ function BuildSettingForm(props: ISettingFormProps): JSX.Element {
                       property={property}
                       removeProperty={removeProperty}
                       setProperty={debouncedSetProperty}
+                      trans={props.trans}
                     />
                   );
                 })}
@@ -319,6 +320,7 @@ function PropertyFrom(props: {
   property: ISettingProperty;
   removeProperty: (hash: string) => void;
   setProperty: Debouncer<void, any, [hash: string, property: ISettingProperty]>;
+  trans: TranslationBundle;
 }): JSX.Element {
   const [state, setState] = useState<{
     property: string;
@@ -371,7 +373,8 @@ function PropertyFrom(props: {
           className="form-control"
           type="text"
           required={true}
-          placeholder={'Property name'}
+          placeholder={props.trans.__('Property name')}
+          aria-label={props.trans.__('Property name')}
           value={state.property}
           onChange={e => {
             changeName(e.target.value);
@@ -380,19 +383,21 @@ function PropertyFrom(props: {
         <select
           className="form-control"
           value={state.type}
+          aria-label={props.trans.__('Property type')}
           onChange={e =>
             changeType(e.target.value as 'boolean' | 'string' | 'number')
           }
         >
-          <option value="string">String</option>
-          <option value="number">Number</option>
-          <option value="boolean">Boolean</option>
+          <option value="string">{props.trans.__('String')}</option>
+          <option value="number">{props.trans.__('Number')}</option>
+          <option value="boolean">{props.trans.__('Boolean')}</option>
         </select>
         <input
           className="form-control"
           type={TYPE_MAP[state.type]}
           required={false}
-          placeholder={'Property value'}
+          placeholder={props.trans.__('Property value')}
+          aria-label={props.trans.__('Property value')}
           value={state.type !== 'boolean' ? state.value : undefined}
           checked={state.type === 'boolean' ? state.value : undefined}
           onChange={
@@ -401,7 +406,12 @@ function PropertyFrom(props: {
               : e => changeValue(e.target.checked, state.type)
           }
         />
-        <button className="jp-mod-minimal jp-Button" onClick={removeItem}>
+        <button
+          className="jp-mod-minimal jp-Button"
+          onClick={removeItem}
+          aria-label={props.trans.__('Remove property')}
+          title={props.trans.__('Remove property')}
+        >
           <closeIcon.react />
         </button>
       </div>
