@@ -1,0 +1,3 @@
+## 2024-05-24 - Accessibility states for toggle icon buttons
+**Learning:** Icon-only toggle buttons in JupyterLab components often use generic classes/CSS for visual toggle state changes but lack explicit ARIA labels and `aria-pressed` or `aria-expanded` attributes. This completely hides their state and purpose from screen readers.
+**Action:** When working on UI components, specifically ensure that any interactive elements which change visual state without a text label also receive the appropriate `aria-label` and `aria-pressed` or `aria-expanded` attributes to communicate their state to assistive technologies.
