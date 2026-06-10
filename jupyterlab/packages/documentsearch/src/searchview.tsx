@@ -187,6 +187,7 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         }}
         tabIndex={0}
         title={trans.__('Match Case')}
+        aria-label={trans.__('Match Case')}
       >
         <caseSensitiveIcon.react className={caseButtonToggleClass} tag="span" />
       </button>
@@ -195,6 +196,7 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         onClick={() => props.onWordToggled()}
         tabIndex={0}
         title={trans.__('Match Whole Word')}
+        aria-label={trans.__('Match Whole Word')}
       >
         <wordIcon.react className={wordButtonToggleClass} tag="span" />
       </button>
@@ -203,6 +205,7 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         onClick={() => props.onRegexToggled()}
         tabIndex={0}
         title={trans.__('Use Regular Expression')}
+        aria-label={trans.__('Use Regular Expression')}
       >
         <regexIcon.react className={regexButtonToggleClass} tag="span" />
       </button>
@@ -247,6 +250,7 @@ function ReplaceEntry(props: IReplaceEntryProps): JSX.Element {
             className={BUTTON_WRAPPER_CLASS}
             onClick={() => props.onPreserveCaseToggled()}
             title={trans.__('Preserve Case')}
+            aria-label={trans.__('Preserve Case')}
           >
             <caseSensitiveIcon.react
               className={preserveCaseButtonToggleClass}
@@ -303,6 +307,7 @@ function UpDownButtons(props: IUpDownProps) {
       onClick={() => (props.isEnabled ? props.onHighlightPrevious() : false)}
       tabIndex={0}
       title={`${props.trans.__('Previous Match')}${prevShortcut}`}
+      aria-label={props.trans.__('Previous Match')}
       disabled={!props.isEnabled}
     >
       <caretUpEmptyThinIcon.react
@@ -318,6 +323,7 @@ function UpDownButtons(props: IUpDownProps) {
       onClick={() => (props.isEnabled ? props.onHighlightNext() : false)}
       tabIndex={0}
       title={`${props.trans.__('Next Match')}${nextShortcut}`}
+      aria-label={props.trans.__('Next Match')}
       disabled={!props.isEnabled}
     >
       <caretDownEmptyThinIcon.react
@@ -373,6 +379,11 @@ function FilterToggle(props: IFilterToggleProps): JSX.Element {
       onClick={() => props.toggleVisible()}
       tabIndex={0}
       title={
+        props.visible
+          ? props.trans.__('Hide Search Filters')
+          : props.trans.__('Show Search Filters')
+      }
+      aria-label={
         props.visible
           ? props.trans.__('Hide Search Filters')
           : props.trans.__('Show Search Filters')
@@ -748,6 +759,7 @@ class SearchOverlay extends React.Component<ISearchOverlayProps> {
             onClick={() => this._onClose()}
             tabIndex={0}
             title={trans.__('Close Search Box')}
+            aria-label={trans.__('Close Search Box')}
           >
             <closeIcon.react
               className="jp-icon-hover"
