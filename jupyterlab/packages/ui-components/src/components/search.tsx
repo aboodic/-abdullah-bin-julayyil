@@ -226,6 +226,7 @@ export const FilterBox = (props: IFilterBoxProps): JSX.Element => {
   return (
     <Search
       role="search"
+      aria-label={props.placeholder || 'Search'}
       className="jp-FilterBox"
       ref={props.inputRef as React.Ref<any>}
       value={filter}
