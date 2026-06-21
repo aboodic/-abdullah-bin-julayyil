@@ -181,6 +181,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         autoUpdate={true}
       />
       <button
+        aria-label={trans.__('Match Case')}
+        aria-pressed={props.caseSensitive}
         className={BUTTON_WRAPPER_CLASS}
         onClick={() => {
           props.onCaseSensitiveToggled();
@@ -191,6 +193,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         <caseSensitiveIcon.react className={caseButtonToggleClass} tag="span" />
       </button>
       <button
+        aria-label={trans.__('Match Whole Word')}
+        aria-pressed={props.wholeWords}
         className={BUTTON_WRAPPER_CLASS}
         onClick={() => props.onWordToggled()}
         tabIndex={0}
@@ -199,6 +203,8 @@ function SearchEntry(props: ISearchEntryProps): JSX.Element {
         <wordIcon.react className={wordButtonToggleClass} tag="span" />
       </button>
       <button
+        aria-label={trans.__('Use Regular Expression')}
+        aria-pressed={props.useRegex}
         className={BUTTON_WRAPPER_CLASS}
         onClick={() => props.onRegexToggled()}
         tabIndex={0}
@@ -244,6 +250,8 @@ function ReplaceEntry(props: IReplaceEntryProps): JSX.Element {
         />
         {props.replaceOptionsSupport?.preserveCase ? (
           <button
+            aria-label={trans.__('Preserve Case')}
+            aria-pressed={props.preserveCase}
             className={BUTTON_WRAPPER_CLASS}
             onClick={() => props.onPreserveCaseToggled()}
             title={trans.__('Preserve Case')}
