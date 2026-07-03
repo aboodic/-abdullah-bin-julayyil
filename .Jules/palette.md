@@ -1,0 +1,3 @@
+## 2024-07-03 - Added ARIA attributes to icon-only toggle buttons in Document Search
+**Learning:** Found several icon-only buttons in the `documentsearch` component (Match Case, Match Whole Word, Use Regular Expression, Preserve Case) that act as toggles but lacked both `aria-label` for screen readers and `aria-pressed` to communicate their toggle state. This is a common accessibility gap for micro-interaction buttons.
+**Action:** Always include both `aria-label` (for description) and `aria-pressed` (bound to the boolean state of the toggle) for icon-only toggle buttons to ensure full accessibility.
